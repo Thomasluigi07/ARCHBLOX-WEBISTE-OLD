@@ -38,6 +38,22 @@ window.addEventListener('resize', function() {
     }
 });
 window.onload = function() {
+    var username = localStorage.getItem("username");
+    var usernamecontainer = document.getElementById("usernameframe");
+    var onlinestatus = document.getElementById("onlinestatus");
+    if (username == null) {
+        usernamecontainer.innerHTML = 'OnlyTwentyCharacters'
+        onlinestatus.className = "onlinestatus_offline"
+        onlinestatus.innerHTML = "Offline"
+    } else if (username == "") {
+        usernamecontainer.innerHTML = 'OnlyTwentyCharacters'
+        onlinestatus.className = "onlinestatus_ingame"
+        onlinestatus.innerHTML = "In Game - OnlyTwentyCharacters's Place"
+    } else {
+        usernamecontainer.innerHTML = `${username}`
+        onlinestatus.className = "onlinestatus_website"
+        onlinestatus.innerHTML = "Website"
+    }
     var logo_full = document.getElementById("logo_full")
     var logo_small = document.getElementById("logo_small")
     var smallbtn = document.getElementById("smallbtn1")

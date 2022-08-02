@@ -38,6 +38,15 @@ window.addEventListener('resize', function() {
     }
 });
 window.onload = function() {
+    var username = localStorage.getItem("username");
+    var usernamecontainer = document.getElementById("usernameframe")
+    if (username == null) {
+        usernamecontainer.innerHTML = `Not signed in.`
+    } else if (username == "") {
+        usernamecontainer.innerHTML = `Not signed in.`
+    } else {
+        usernamecontainer.innerHTML = `Hello, ${username}!`
+    }
     var logo_full = document.getElementById("logo_full")
     var logo_small = document.getElementById("logo_small")
     var smallbtn = document.getElementById("smallbtn1")
